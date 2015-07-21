@@ -178,10 +178,12 @@ $result = call_elucidat($headers, $fields, 'GET', 'https://api.elucidat.com/v2/r
     </head>
     <body>
         <iframe frameborder="0" src="<?php echo $result['response']['url'] ?>" seamless></iframe>
+        <!-- Debug messages - you can remove this in a production environment -->
         <div class="debug"><pre><?php echo ("HTTP status code: " . $result['status'] . "\n"); print_r($result['response']); ?></pre></div>
         <script>
             // Resizing to viewport code to enable responsiveness
             function resize () {
+                // very important to set absolute sizes rather than percentages
                 $('iframe').height( $(window).height() ).width( $(window).width() );
             }
             resize();
