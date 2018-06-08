@@ -68,6 +68,7 @@ function ksort(obj) {
     }
     return sortedObj;
 }
+
 /**
  * Computes and returns a signature for the request.
  * @param $secret
@@ -89,8 +90,8 @@ function buildSignature(consumer_secret, fields, requestType, url) {
 
 /**
  * Builds a segment from an array of fields.  Its used to create string representations of headers and URIs
- * @param $fields
- * @param $delim
+ * @param fields
+ * @param delim
  * @return string
 */
 function buildBaseString(obj, delim) {
