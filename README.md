@@ -23,7 +23,7 @@ To fix this we need to:
 // For this to work the iframe size needs to be set in px (Step 2)
 // This will remove the scroll from the iframe so we need to make the body element inside the iframe scrollable (step 3)
 
-```
+``` html
 <iframe ... scrolling="no" />
 ```
 
@@ -31,7 +31,7 @@ To fix this we need to:
 #### 2 - Set the iframe size, in px, using the screen's size
 This needs to update the iframe when the page first loads, or when the browser resizes
 
-```
+``` Javascript
 // calculate the iframe size when the window size changes
 window.addEventListener( "resize", resizeIFrameAfterDelay() );
 
@@ -51,15 +51,14 @@ resizeIFrame = () => {
         iFrame.style.width = `${w}px`;
     }
 }
-
 ```
 
 
 #### 3 - Add overflow to the document body
 Adding `scrolling="no"` to the iframe makes it unscrollable so to complete the fix we need to move the overflow to the body of the course, this needs to be done via a plugin
 
-```
-$('html,body').css({
+``` Javascript
+$('html, body').css({
     'height':'100%',
     'overflow': 'auto'
 });
