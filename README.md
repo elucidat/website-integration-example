@@ -20,8 +20,9 @@ To fix this we need to:
 
 
 #### 1 - Add `scrolling="no"` to the iframe
-// For this to work the iframe size needs to be set in px (Step 2)
-// This will remove the scroll from the iframe so we need to make the body element inside the iframe scrollable (step 3)
+For this to work the iframe size needs to be set in px (Step 2)
+
+This will remove the scroll from the iframe so we need to make the body element inside the iframe scrollable (step 3)
 
 ``` html
 <iframe ... scrolling="no" />
