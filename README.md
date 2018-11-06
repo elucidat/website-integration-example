@@ -1,6 +1,6 @@
-# Elucidat Website Integration Example
+# Iframe Integration Example
 
-An example demonstrating integrating Elucidat into a website (or App) via an iframe, with responsive sizing and data being passed back via window.postMessage.
+An example demonstrating integrating Elucidat into a website (or App) via an iframe, with responsive sizing.
 
 
 
