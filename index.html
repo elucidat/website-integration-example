@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Elucidat website integration example</title>
+        <!-- viewport behaviour IMPORTANT -->
+        <!-- viewport behaviour IMPORTANT -->
+        <!-- viewport behaviour IMPORTANT -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+        <style>
+            body {
+                padding: 0;
+                margin: 0;
+            }
+            iframe {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+            div.debug {
+                position: absolute;
+                font-size: 10px;
+                color: #fff;
+                background-color: #c00;
+                bottom: 0px;
+                left: 0px;
+                z-index: 1;
+                padding:10px;
+            }
+        </style>
+        <script>
+            window.API = {
+                // 1.2 functions
+                LMSInitialize: () => {
+                    $('div.debug pre').append("\n<>- 1.2 LMSInitialize");
+                },
+                LMSFinish: () => {
+                    $('div.debug pre').append("\n<>- 1.2 LMSFinish");
+                },
+                LMSGetValue: (param) => {
+                    $('div.debug pre').append("\n<>- 1.2 LMSGetValue:" + param);
+                    return '';
+                },
+                LMSSetValue: (param, value) => {
+                    $('div.debug pre').append("\n<>- 1.2 LMSSetValue:" + param + ": "+value);
+                },
+                LMSCommit: () => {
+                    $('div.debug pre').append("\n<>- 1.2 LMSCommit");
+                },
+                LMSGetLastError: () => {
+                    $('div.debug pre').append("\n<>- 1.2 LMSGetLastError");
+                    return 0;
+                },
+                LMSGetErrorString: () => {
+                    $('div.debug pre').append("\n<>- 1.2 LMSGetErrorString");
+                    return '';
+                },
+                LMSGetDiagnostic: () => {
+                    $('div.debug pre').append("\n<>- LMSGetDiagnostic");
+                    return '';
+                },
+            };
+
+            /*
+            * SCORM 2004 interface
+            * NOTE - there will be slightly different behaviour for 2nd, 3rd, 4th edition
+
+            window.API_1484_11 = {
+                // 2004 functions
+                Initialize: () => {
+                    $('div.debug pre').append("\n<>- 2004 Initialize");
+                },
+                Terminate: () => {
+                    $('div.debug pre').append("\n<>- 2004 Terminate");
+                },
+                GetValue: (param) => {
+                    $('div.debug pre').append("\n<>- 2004 GetValue:" + param);
+                    return '';
+                },
+                SetValue: (param, value) => {
+                    $('div.debug pre').append("\n<>- 2004 SetValue:" + param + ": "+value);
+                },
+                Commit: () => {
+                    $('div.debug pre').append("\n<>- 2004 Commit");
+                },
+                GetLastError: () => {
+                    $('div.debug pre').append("\n<>- 2004 GetLastError");
+                    return 0;
+                },
+                GetErrorString: () => {
+                    $('div.debug pre').append("\n<>- 2004 GetErrorString");
+                    return '';
+                },
+                GetDiagnostic: () => {
+                    $('div.debug pre').append("\n<>- 2004 GetDiagnostic");
+                    return '';
+                },
+            };
+
+            */
+        </script>
+    </head>
+    <body>
+        <iframe frameborder="0" src="exampleCourse/launch.html" seamless></iframe>
+        <!-- Debug messages - you can remove this in a production environment -->
+        <div class="debug"><pre></pre></div>
+        <script>
+            // Resizing to viewport code to enable responsiveness
+            function resize () {
+                // very important to set absolute sizes rather than percentages
+                $('iframe').height( $(window).height() ).width( $(window).width() );
+            }
+            resize();
+            window.onresize = resize;
+            window.addEventListener("orientationchange", function() {
+                resize();
+            }, false);
+        </script>
+    </body>
+</html>
